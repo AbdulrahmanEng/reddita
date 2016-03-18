@@ -23,7 +23,7 @@
       </ion-header-bar>
       <ion-content>
 			<div class="list">
-      <a  href="{{story.url}}" target="_blank" class="item item-thumbnail-left" ng-repeat="story in stories">
+      <a  href="{{story.url}}" target="_blank" class="item item-thumbnail-left" ng-repeat="story in stories track by story.id">
 	<img ng-src="{{story.thumbnail}}" ng-if="story.thumbnail.startsWith('http')"/>
       <h2 class="story-title">{{story.title}}</h2>
       <p>
