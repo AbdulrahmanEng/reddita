@@ -10,11 +10,9 @@
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
-
-    <!-- cordova script (this will be a 404 during development) -->
+    <script src="lib/moment/moment.js"></script>
+    <script src="lib/angular-moment/angular-moment.js"></script>
     <script src="cordova.js"></script>
-
-    <!-- your app's js -->
     <script src="js/app.js"></script>
   </head>
   <body ng-app="reditta" ng-controller="redditaCtrl">
@@ -28,7 +26,10 @@
       <a  href="{{story.url}}" target="_blank" class="item item-thumbnail-left" ng-repeat="story in stories">
 	<img ng-src="{{story.thumbnail}}" ng-if="story.thumbnail.startsWith('http')"/>
       <h2 class="story-title">{{story.title}}</h2>
-      <p>{{story.domain}}</p>
+      <p>
+      <span am-time-ago="story.created_utc" am-preprocess="unix"></span> - 
+      {{story.domain}}
+      </p>
       </a>
 			</div>
       </ion-content>
