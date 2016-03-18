@@ -7,7 +7,7 @@ angular.module('reditta', ['ionic'])
 
 .controller('redditaCtrl', function($scope, $http) {
   $scope.stories = [];
-  $http.get('https://www.reddit.com/r/unix.json')
+  $http.get('https://www.reddit.com/r/space.json')
   .success(function(response) {
     angular.forEach(response.data.children, function(child) {
       $scope.stories.push(child.data);

@@ -20,13 +20,17 @@
   <body ng-app="reditta" ng-controller="redditaCtrl">
 
     <ion-pane>
-      <ion-header-bar class="bar-stable">
+      <ion-header-bar class="bar-assertive">
         <h1 class="title">Reddita</h1>
       </ion-header-bar>
       <ion-content>
-      <div ng-repeat="story in stories">
-      <a href="{{story.url}}" target="_blank">{{story.title}}</a> -- {{story.domain}}
-      </div>
+			<div class="list">
+      <a  href="{{story.url}}" target="_blank" class="item item-thumbnail-left" ng-repeat="story in stories">
+	<img ng-src="{{story.thumbnail}}" ng-if="story.thumbnail.startsWith('http')"/>
+      <h2 class="story-title">{{story.title}}</h2>
+      <p>{{story.domain}}</p>
+      </a>
+			</div>
       </ion-content>
     </ion-pane>
   </body>
